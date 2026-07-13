@@ -1,0 +1,93 @@
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: rockwell, tahoma;
+    background-image: url("./images/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/* Navigation bar */
+
+.navbar {
+    display: flex;
+    /* position: fixed; */
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgb(46 26 90);
+    color: #fff;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: aqua
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #eef;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    color: aqua;
+}
+
+.nav-links a.active {
+    color:aqua;
+    border-bottom-color: aqua;
+}
+
+/* Search bar */
+
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#search-bar {
+    min-width: 220px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    border: 1px solid #cde;
+}
+
+
+/* Main content */
+
+
+main {
+    height: 20000px;
+    backdrop-filter: brightness(0.75);
+}
