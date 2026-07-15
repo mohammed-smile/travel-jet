@@ -82,8 +82,8 @@ body {
 
 #search-bar {
     min-width: 220px;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
+    padding: 0rem 1rem;
+    border-radius: 17px;
     border: 1px solid #cde;
     flex: 1;
 }
@@ -91,7 +91,7 @@ body {
 /* Buttons */
 
 .btn {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 7px;
     font-weight: bold;
     color: #214;
