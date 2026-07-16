@@ -125,7 +125,6 @@ main {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    
     text-shadow: 5px 5px black;
 }
 
@@ -140,7 +139,8 @@ main {
 
 /* About Us page */
 
-.about-article h1, .about-article h2 {
+.about-article h1,
+.about-article h2 {
     margin: 2rem 0 0;
     text-shadow: 5px 5px black;
     background-color: #656cae99;
@@ -162,7 +162,7 @@ main {
     padding: 1rem;
 }
 
-.about-section ~ img {
+.about-section~img {
     display: inline;
     height: 200px;
     margin: 0.5rem;
