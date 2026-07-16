@@ -13,7 +13,7 @@ const searchBtn = document.querySelector("#search-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const resultsEl = document.querySelector("#results");
 const heroEl = document.querySelector(".hero")
-const contactForm = document.querySelector("#contact-form")
+const contactForm = document.querySelector(".contact-form")
 
 
 // Bind listeners
