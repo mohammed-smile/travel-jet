@@ -170,6 +170,34 @@ main {
     border-radius: 15px;
 }
 
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #656cae99;
+    border: aqua solid 2px;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.contact-form h1 {
+    text-align: center;
+    text-shadow: 5px 5px black;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin: 0.3rem;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 0.5rem;
+    border-radius: 7px;
+    border: 1px solid #cde;
+}
+
 /* Footer */
 
 
