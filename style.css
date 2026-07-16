@@ -163,6 +163,14 @@ main {
     padding: 1rem;
 }
 
+.about-section ~ img {
+    display: inline;
+    height: 200px;
+    margin: 0.5rem;
+    border: aqua solid 2px;
+    border-radius: 15px;
+}
+
 /* Footer */
 
 
