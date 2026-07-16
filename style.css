@@ -55,7 +55,7 @@ body {
     gap: 2rem;
 }
 
-.nav-links a {
+.navbar a {
     color: #eef;
     text-decoration: none;
     font-weight: bold;
