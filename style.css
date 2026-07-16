@@ -80,7 +80,7 @@ body {
     flex: 1;
 }
 
-#search-bar {
+#search-input {
     min-width: 220px;
     padding: 0rem 1rem;
     border-radius: 17px;
