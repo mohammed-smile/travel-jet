@@ -70,7 +70,7 @@ function clear() {
 }
 
 function input(e) {
-    if (e.Key == "Enter") search();
+    if (e.key == "Enter") search();
 }
 
 function submit(e) {
