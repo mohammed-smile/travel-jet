@@ -211,11 +211,10 @@ main {
 
 #results-grid {
     display: grid;
-    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
     gap: 1.5rem;
     border-radius: 15px;
     padding: 1rem;
-    width: min-content;
 }
 
 #results-section h1 {
