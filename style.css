@@ -215,6 +215,7 @@ main {
     gap: 1.5rem;
     border-radius: 15px;
     padding: 1rem;
+    width: min-content;
 }
 
 #results-section h1 {
@@ -222,7 +223,6 @@ main {
 }
 
 .results-card {
-    width: fit-content;
     background-color: #656cae99;
     border: aqua solid 2px;
     border-radius: 15px;
