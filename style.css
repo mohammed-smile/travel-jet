@@ -207,6 +207,34 @@ main {
     font-weight: bold;
 }
 
+/* Search results */
+
+#results-grid {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.5rem;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+#results-section h1 {
+    margin-bottom: 1rem;
+}
+
+.results-card {
+    width: fit-content;
+    background-color: #656cae99;
+    border: aqua solid 2px;
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.results-card img {
+    width: 300px;
+    border-radius: 10px;
+}
+
 /* Footer */
 
 

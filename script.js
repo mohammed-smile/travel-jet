@@ -55,9 +55,9 @@ function search() {
 
             resultsHTML += `
                 <div class="results-card">
-                    <h3>${recom.name}</h3>
+                    <img src="images/${imageUrl}" alt="${recom.name} photo">
+                    <h2>${recom.name}</h2>
                     <p>${recom.description}</p>
-                    <img src="${imageUrl}" alt="${recom.name} photo">
                 </div>
             `
         }
