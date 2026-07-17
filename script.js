@@ -11,7 +11,7 @@ fetch("travel_recommendation_api.json")
 const searchInput = document.querySelector("#search-input");;
 const searchBtn = document.querySelector("#search-btn");
 const clearBtn = document.querySelector("#clear-btn");
-const resultsEl = document.querySelector("#results");
+const resultsSection = document.querySelector("#results-section");
 const heroEl = document.querySelector(".hero")
 const contactForm = document.querySelector(".contact-form")
 
@@ -41,8 +41,8 @@ function search() {
 
     heroEl.classList.add("hidden");
 
-    resultsEl.innerHTML = matches.length ?
-        "<h1>Search results</h1>" :
+    let resultsHTML = matches.length ?
+        "<h1>Search results</h1><div id=\"results-grid\">" :
         '<h1>No results found</h1><p>Try "Beaches", "Temples", or "Countries".';
     for (match of matches) {
         let recoms = travelData[match];
@@ -52,7 +52,7 @@ function search() {
                 recom.cities[Math.floor(Math.random() * 100) % 2].imageUrl :
                 recom.imageUrl;
 
-            resultsEl.innerHTML += `
+            resultsHTML += `
                 <div class="results-card">
                     <h3>${recom.name}</h3>
                     <p>${recom.description}</p>
@@ -61,11 +61,12 @@ function search() {
             `
         }
     }
+    resultsSection.innerHTML = resultsHTML
 }
 
 function clear() {
     if (searchInput) searchInput.value = "";
-    if (resultsEl) resultsEl.innerHTML = "";
+    if (resultsSection) resultsSection.innerHTML = "";
     if (heroEl) heroEl.classList.remove("hidden");
 }
 
