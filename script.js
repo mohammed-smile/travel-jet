@@ -27,6 +27,7 @@ if (contactForm) contactForm.addEventListener("submit", (e) => {
     const confimation = document.querySelector("#form-confirmation");
     if (confimation) confimation.classList.remove('hidden');
     contactForm.reset();
+    document.documentElement.scrollTo(0, 0);
 })
 
 
