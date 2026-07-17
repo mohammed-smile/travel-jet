@@ -40,6 +40,7 @@ function search() {
         .map((entry) => entry[0]);
 
     heroEl.classList.add("hidden");
+    resultsSection.classList.remove("hidden")
 
     let resultsHTML = matches.length ?
         "<h1>Search results</h1><div id=\"results-grid\">" :
@@ -68,6 +69,7 @@ function clear() {
     if (searchInput) searchInput.value = "";
     if (resultsSection) resultsSection.innerHTML = "";
     if (heroEl) heroEl.classList.remove("hidden");
+    if (resultsSection) resultsSection.classList.add("hidden");
 }
 
 function input(e) {
