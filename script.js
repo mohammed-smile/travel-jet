@@ -49,7 +49,7 @@ function search() {
         let recoms = travelData[match];
 
         for (recom of recoms) {
-            imageUrl = match == "counties" ?
+            imageUrl = match == "countries" ?
                 recom.cities[Math.floor(Math.random() * 100) % 2].imageUrl :
                 recom.imageUrl;
 
