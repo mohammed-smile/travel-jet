@@ -31,7 +31,7 @@ function search() {
     let matches = {
         beaches: input.search(/\bbeach(es)?\b/i),
         temples: input.search(/\btemples?\b/),
-        countries: input.search(/\bcountr(y|ies)\b/)
+        countries: input.search(/\bcountr(y|ies)|\bcit(y|ies)\b/)
     }
 
     matches = Object.entries(matches)
@@ -49,17 +49,25 @@ function search() {
         let recoms = travelData[match];
 
         for (recom of recoms) {
-            imageUrl = match == "countries" ?
-                recom.cities[Math.floor(Math.random() * 100) % 2].imageUrl :
-                recom.imageUrl;
-
-            resultsHTML += `
+            if (match == "countries") {
+                for (city of recom.cities) {
+                    resultsHTML += `
+                        <div class="results-card">
+                            <img src="images/${city.imageUrl}" alt="${city.name} photo">
+                            <h2>${city.name}</h2>
+                            <p>${city.description}</p>
+                        </div>
+                    `
+                }
+            } else {
+                resultsHTML += `
                 <div class="results-card">
-                    <img src="images/${imageUrl}" alt="${recom.name} photo">
+                    <img src="images/${recom.imageUrl}" alt="${recom.name} photo">
                     <h2>${recom.name}</h2>
                     <p>${recom.description}</p>
                 </div>
             `
+            }
         }
     }
     resultsSection.innerHTML = resultsHTML
