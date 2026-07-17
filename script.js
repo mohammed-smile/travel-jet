@@ -19,16 +19,8 @@ const contactForm = document.querySelector(".contact-form")
 // Bind listeners
 if (searchBtn) searchBtn.addEventListener("click", search);
 if (clearBtn) clearBtn.addEventListener("click", clear);
-if (searchInput) searchInput.addEventListener("keydown", (e) => {
-    if (e.key == "Enter") search();
-})
-if (contactForm) contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const confimation = document.querySelector("#form-confirmation");
-    if (confimation) confimation.classList.remove('hidden');
-    contactForm.reset();
-    document.documentElement.scrollTo(0, 0);
-})
+if (searchInput) searchInput.addEventListener("keydown", input);
+if (contactForm) contactForm.addEventListener("submit", submit);
 
 
 // Define callbacks
@@ -75,4 +67,16 @@ function clear() {
     if (searchInput) searchInput.value = "";
     if (resultsEl) resultsEl.innerHTML = "";
     if (heroEl) heroEl.classList.remove("hidden");
+}
+
+function input(e) {
+    if (e.Key == "Enter") search();
+}
+
+function submit(e) {
+    e.preventDefault();
+    const confimation = document.querySelector("#form-confirmation");
+    if (confimation) confimation.classList.remove('hidden');
+    contactForm.reset();
+    document.documentElement.scrollTo(0, 0);
 }
