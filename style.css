@@ -104,6 +104,7 @@ body {
     color: #214;
     background-color: cyan;
     cursor: pointer;
+    border: 2px solid darkcyan;
 }
 
 .btn.secondary {
