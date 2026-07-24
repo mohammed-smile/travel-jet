@@ -88,6 +88,15 @@ body {
     border-bottom-color: aqua;
 }
 
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        align-items: end;
+    }
+}
+
 /* Search bar */
 
 .search-bar {
