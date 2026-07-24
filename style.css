@@ -256,6 +256,7 @@ footer {
     text-align: center;
     padding: 1.5rem;
     grid-area: footer;
+    background-color: #214;
 }
 
 /* Page slide animation */
