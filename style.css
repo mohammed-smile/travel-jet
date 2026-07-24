@@ -123,6 +123,7 @@ body {
 main {
     margin: 0 auto;
     padding: 1.5rem;
+    view-transition-name: page-content;
 }
 
 .hero {
@@ -245,4 +246,34 @@ main {
 footer {
     text-align: center;
     padding: 1.5rem;
+}
+
+/* Page slide animation */
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(page-content) {
+    animation-duration: 1s;
+}
+
+::view-transition-old(page-content) {
+    animation-name: slide-out;
+}
+
+@keyframes slide-out {
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+::view-transition-new(page-content) {
+    animation-name: slide-in;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100vw);
+    }
 }
