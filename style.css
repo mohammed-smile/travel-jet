@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+:root {
+    scrollbar-gutter: stable;
+}
+
 body {
     font-family: rockwell, tahoma;
     background-image: url("./images/background.jpg");
