@@ -107,7 +107,7 @@ body {
 }
 
 #search-input {
-    min-width: 220px;
+    min-height: 27px;
     padding: 0rem 1rem;
     border-radius: 17px;
     border: 1px solid #cde;
