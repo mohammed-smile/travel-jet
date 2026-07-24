@@ -16,6 +16,14 @@ body {
     background-size: cover;
     background-attachment: fixed;
     color: white;
+    height: 100vh;
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
 }
 
 .hidden {
@@ -37,6 +45,7 @@ body {
     color: #fff;
     flex-wrap: wrap;
     gap: 1rem;
+    grid-area: header;
 }
 
 .navbar nav {
@@ -125,6 +134,7 @@ main {
     margin: 0 auto;
     padding: 1.5rem;
     view-transition-name: page-content;
+    grid-area: main;
 }
 
 .hero {
@@ -245,6 +255,7 @@ main {
 footer {
     text-align: center;
     padding: 1.5rem;
+    grid-area: footer;
 }
 
 /* Page slide animation */
