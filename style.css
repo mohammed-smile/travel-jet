@@ -142,8 +142,12 @@ body {
 main {
     margin: 0 auto;
     padding: 1.5rem;
+    width: min(1200px, 100%);
     view-transition-name: page-content;
     grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .hero {
@@ -208,6 +212,7 @@ main {
     border: aqua solid 2px;
     border-radius: 15px;
     padding: 1rem;
+    width: clamp(232px, 46%, 500px);
 }
 
 .contact-form h1 {
