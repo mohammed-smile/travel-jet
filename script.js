@@ -14,6 +14,7 @@ const clearBtn = document.querySelector("#clear-btn");
 const resultsSection = document.querySelector("#results-section");
 const heroEl = document.querySelector(".hero")
 const contactForm = document.querySelector(".contact-form")
+const featured = document.querySelector("#featured");
 
 
 // Bind listeners
@@ -40,6 +41,7 @@ function search() {
         .map((entry) => entry[0]);
 
     heroEl.classList.add("hidden");
+    featured.classList.add("hidden");
     resultsSection.classList.remove("hidden")
 
     let resultsHTML = matches.length ?
@@ -77,6 +79,7 @@ function clear() {
     if (searchInput) searchInput.value = "";
     if (resultsSection) resultsSection.innerHTML = "";
     if (heroEl) heroEl.classList.remove("hidden");
+    if (featured) featured.classList.remove("hidden");
     if (resultsSection) resultsSection.classList.add("hidden");
 }
 
