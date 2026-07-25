@@ -31,7 +31,7 @@
 
     <main>
         <section class="hero">
-                <p class="hero-tag">Plan smarter, travel better</p>
+            <p class="hero-tag">Plan smarter, travel better</p>
             <h1>Discover Your Next Destination</h1>
             <p>
                 Welcome to TravelJet — your own window to the world's most breathtaking
@@ -39,7 +39,31 @@
                 "temple", or "country" into the search bar above to get instant
                 recommendations.
             </p>
-            <button id="book-btn" class="btn">Book</button>
+            <div class="hero-actions">
+                <button id="book-btn" class="btn">Book</button>
+                <a href="#featured" class="btn secondary">Explore destinations</a>
+            </div>
+        </section>
+
+        <section id="featured" class="featured-section">
+            <h2>Popular escapes</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <img src="images/copacabana.jpg" alt="Copacabana">
+                    <h3>Beach Getaways</h3>
+                    <p>Sun-kissed shores, clear water, and calm coastal views.</p>
+                </article>
+                <article class="feature-card">
+                    <img src="images/taj-mahal.jpg" alt="Taj Mahal">
+                    <h3>Temple Trails</h3>
+                    <p>Ancient culture, peaceful surroundings, and timeless architecture.</p>
+                </article>
+                <article class="feature-card">
+                    <img src="images/tokyo.jpg" alt="Tokyo">
+                    <h3>Country Adventures</h3>
+                    <p>Scenic cities, local food, and unforgettable road trips.</p>
+                </article>
+            </div>
         </section>
         <section id="results-section" class="hidden">
         </section>
@@ -48,9 +72,9 @@
     <footer>
         <p>&copy; 2026 Travel Jet. All rights reserved.</p>
     </footer>
-    
+
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>
