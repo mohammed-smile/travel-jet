@@ -318,9 +318,10 @@ p.hero-tag {
     text-align: center;
 }
 
-.results-card img {
-    width: 300px;
-    border-radius: 10px;
+img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 /* Footer */
