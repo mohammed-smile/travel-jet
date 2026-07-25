@@ -178,6 +178,19 @@ main {
     padding: 1rem;
 }
 
+p.hero-tag {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(0, 255, 255, 0.16);
+    color: aqua;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
 /* About Us page */
 
 .about-article h1,
