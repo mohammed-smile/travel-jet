@@ -171,6 +171,47 @@ body {
     flex: 1;
 }
 
+/* Search input wrapper places icons inside the input */
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-input-wrapper input#search-input {
+    width: 100%;
+    padding: 0.45rem 2rem; /* room for icons */
+    border-radius: 20px;
+    border: 1px solid #cde;
+    background: rgba(255,255,255,0.06);
+    color: white;
+    transition: box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.search-input-wrapper input#search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,255,255,0.08);
+    background: rgba(255,255,255,0.09);
+}
+
+.search-input-wrapper .btn.icon {
+    position: absolute;
+    background: transparent;
+    border: none;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input-wrapper .btn.icon.clear {
+    right: 0;
+}
+
+.search-input-wrapper .btn.icon svg {color: cyan;}
+
 /* Buttons */
 
 .btn {
