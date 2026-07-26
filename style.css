@@ -189,7 +189,7 @@ img.logo {
     padding: 0.45rem 2rem; /* room for icons */
     border-radius: 20px;
     border: 1px solid #cde;
-    background: rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.1);
     color: white;
     transition: box-shadow 0.15s ease, background 0.15s ease;
 }
