@@ -45,6 +45,26 @@ if (navToggle && primaryNav) {
     });
 }
 
+// Ensure body class toggles to prevent background scroll when nav open
+if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', () => {
+        document.body.classList.toggle('nav-open');
+    });
+}
+
+// Compute and set CSS variable for nav top offset so off-canvas menu sits below header
+function setNavTopOffset() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    const rect = navbar.getBoundingClientRect();
+    const topOffset = Math.ceil(rect.height) + 'px';
+    document.documentElement.style.setProperty('--nav-top', topOffset);
+}
+
+// Run on load and on resize to keep the offset accurate
+setNavTopOffset();
+window.addEventListener('resize', setNavTopOffset);
+
 
 // Define callbacks
 function search() {
