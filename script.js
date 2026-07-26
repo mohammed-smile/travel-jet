@@ -2,64 +2,90 @@
 
 // Load data
 let travelData;
-fetch("travel_recommendation_api.json")
-    .then((response) => response.json())
-    .then((data) => travelData = data);
 
 
 // Get elements
-const searchInput = document.querySelector("#search-input");;
+const searchInput = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const resultsSection = document.querySelector("#results-section");
-const heroEl = document.querySelector(".hero")
-const contactForm = document.querySelector(".contact-form")
+const heroEl = document.querySelector(".hero");
+const contactForm = document.querySelector(".contact-form");
 const featured = document.querySelector("#featured");
+const searchForm = document.querySelector("#search-form");
+const navToggle = document.querySelector('#nav-toggle');
+const primaryNav = document.querySelector('#primary-nav');
 
+
+// Initially disable search until data loads
+if (searchBtn) searchBtn.disabled = true;
+if (clearBtn) clearBtn.disabled = true;
+
+// When data loads, enable buttons
+fetch("travel_recommendation_api.json")
+    .then((res) => res.json())
+    .then((data) => {
+        travelData = data;
+        if (searchBtn) searchBtn.disabled = false;
+        if (clearBtn) clearBtn.disabled = false;
+    }).catch(() => {
+        // leave buttons disabled on error
+    });
 
 // Bind listeners
-if (searchBtn) searchBtn.addEventListener("click", search);
+if (searchForm) searchForm.addEventListener("submit", function (e) { e.preventDefault(); search(); });
 if (clearBtn) clearBtn.addEventListener("click", clear);
-if (searchInput) searchInput.addEventListener("keydown", input);
 if (contactForm) contactForm.addEventListener("submit", submit);
+if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', () => {
+        primaryNav.classList.toggle('show');
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navToggle.classList.toggle('active');
+    });
+}
 
 
 // Define callbacks
 function search() {
-    let input = searchInput.value;
-    if (!input) return;
-
-    let matches = {
-        beaches: input.search(/\bbeach(es)?\b/i),
-        temples: input.search(/\btemples?\b/),
-        countries: input.search(/\bcountr(y|ies)|\bcit(y|ies)\b/)
+    if (!searchInput) return;
+    const query = searchInput.value.trim();
+    if (!query) return;
+    if (!travelData) {
+        alert('Data is still loading, please try again in a moment.');
+        return;
     }
 
-    matches = Object.entries(matches)
-        .filter(entry => entry[1] != -1)
+    const matchesScore = {
+        beaches: query.search(/\bbeach(es)?\b/i),
+        temples: query.search(/\btemples?\b/i),
+        countries: query.search(/\bcountr(y|ies)|\bcit(y|ies)\b/i)
+    };
+
+    const matches = Object.entries(matchesScore)
+        .filter(([, v]) => v !== -1)
         .sort((a, b) => a[1] - b[1])
         .map((entry) => entry[0]);
 
-    heroEl.classList.add("hidden");
-    featured.classList.add("hidden");
-    resultsSection.classList.remove("hidden")
+    if (heroEl) heroEl.classList.add("hidden");
+    if (featured) featured.classList.add("hidden");
+    if (resultsSection) resultsSection.classList.remove("hidden");
 
-    let resultsHTML = matches.length ?
-        "<h1>Search results</h1><div id=\"results-grid\">" :
-        '<h1>No results found</h1><p>Try "Beaches", "Temples", or "Countries".';
-    for (match of matches) {
-        let recoms = travelData[match];
+    let resultsHTML = matches.length ? "<h1>Search results</h1><div id=\"results-grid\">" : '<h1>No results found</h1><p>Try "Beaches", "Temples", or "Countries".</p>';
 
-        for (recom of recoms) {
-            if (match == "countries") {
-                for (city of recom.cities) {
+    for (const match of matches) {
+        const recoms = travelData[match] || [];
+
+        for (const recom of recoms) {
+            if (match === "countries") {
+                for (const city of recom.cities || []) {
                     resultsHTML += `
                         <div class="results-card">
                             <img src="images/${city.imageUrl}" alt="${city.name} photo">
                             <h2>${city.name}</h2>
                             <p>${city.description}</p>
                         </div>
-                    `
+                    `;
                 }
             } else {
                 resultsHTML += `
@@ -68,11 +94,13 @@ function search() {
                     <h2>${recom.name}</h2>
                     <p>${recom.description}</p>
                 </div>
-            `
+            `;
             }
         }
     }
-    resultsSection.innerHTML = resultsHTML
+
+    if (matches.length) resultsHTML += '</div>';
+    if (resultsSection) resultsSection.innerHTML = resultsHTML;
 }
 
 function clear() {
@@ -89,8 +117,8 @@ function input(e) {
 
 function submit(e) {
     e.preventDefault();
-    const confimation = document.querySelector("#form-confirmation");
-    if (confimation) confimation.classList.remove('hidden');
-    contactForm.reset();
+    const confirmation = document.querySelector("#form-confirmation");
+    if (confirmation) confirmation.classList.remove('hidden');
+    if (contactForm) contactForm.reset();
     document.documentElement.scrollTo(0, 0);
 }
