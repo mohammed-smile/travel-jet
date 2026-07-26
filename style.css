@@ -60,13 +60,9 @@ body {
     flex: 1;
 }
 
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.logo span {
-    color: aqua
+img.logo {
+    height: 40px;
+    width: 40px;
 }
 
 .nav-links {
